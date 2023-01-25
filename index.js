@@ -11,6 +11,8 @@ app.use(express.static('public'))
 
 // Controllers and Routes
 app.use('/places', require('./controllers/places'))
+app.use(express.urlencoded({ extended: true }))
+
 
 app.get('/', (req, res) => {
     let places = [{
