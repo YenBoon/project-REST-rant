@@ -9,7 +9,7 @@ function index(data) {
           <a href={`/places/${index}`}>{place.name}</a>
         </h2>
         <p className="text-center">{place.cuisines}</p>
-        <img src={place.pic} alt={place.name} />
+        <img src={place.pic} alt={place.name} width="250" height="250" />
         <p className="text-center">
           Located in {place.city}, {place.state}
         </p>
