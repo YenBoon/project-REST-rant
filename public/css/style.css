@@ -3,6 +3,11 @@ h1 {
   color: cornflowerblue;
 }
 
+h2 {
+  text-align: center;
+  color: cornflowerblue;
+}
+
 nav {
   background-color: cornflowerblue;
   padding: 10px;
