@@ -1,12 +1,6 @@
 const router = require('express').Router()
 const places = require('../models/places.js')
 
-// More code here in a moment
-// GET
-// router.get('/', (req, res) => {
-//    res.send('GET /places')
-// })
-
 // Get /places
 router.get('/', (req, res) => {
     res.render('places/index', { places })
@@ -42,7 +36,7 @@ router.delete('/:id', (req, res) => {
   }
   else {
     places.splice(id, 1)
-    res.send('/places')
+    res.redirect('/places')
   }
 })
 
