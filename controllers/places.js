@@ -23,7 +23,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .then(place => {
-      res.render('places/show', { place })
+      res.render('places/show', { place, id: req.params.id })
   })
   .catch(err => {
       console.log('err', err)
@@ -33,7 +33,10 @@ router.get('/:id', (req, res) => {
 
 // DELETE
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(deletedPlace => {
+    res.status(303).redirect('/places')
+  })
 })
 
 // POST
@@ -50,12 +53,23 @@ router.post('/', (req, res) => {
 
 // edit
 router.get("/:id/edit", (req, res) => {
-  res.send('GET edit form stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+      res.render('places/edit', { place, id: req.params.id })
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 });
+
 
 // PUT
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then (updatedPlace => {
+    res.redirect(`/places/${req.params.id}`)
+  })
 })
 
 router.post('/:id/rant', (req, res) =>{
