@@ -2,7 +2,7 @@
   "name": "rest-rant",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.2"
+    "node": "14.15.4"
   },
   "description": "",
   "main": "index.js",
@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/plugin-transform-flow-strip-types": "^7.19.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-react-views": "^0.11.0",
